@@ -20,3 +20,19 @@ Creating docker compose files for now in subfolders with a notion of increasing 
 	jupyter notebooks
 	r studio
 
+To interact with these then we'd recommend installing the following portable apps on your UCLH desktop machine.
+
+Text editors (just a suggestion, not trying to start a fight)
+
+Atom: https://flight-manual.atom.io/getting-started/sections/installing-atom/
+
+mainly so you can use [Hydrogen](https://atom.io/packages/hydrogen)
+
+I note that Visual Studio Code also installs without admin privileges.
+
+Plus 
+
+- https://www.chiark.greenend.org.uk/~sgtatham/putty/
+- https://mobaxterm.mobatek.net
+- https://winscp.net/eng/index.php
+
