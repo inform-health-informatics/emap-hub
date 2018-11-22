@@ -1,48 +1,19 @@
 version: '3'
 services:
+    devops:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+            args:
+                http_proxy: $http_proxy
+                HTTP_PROXY: $HTTP_PROXY
+                https_proxy: $https_proxy
+                HTTPS_PROXY: $HTTPS_PROXY
+        entrypoint: sh
+        environment:
+                http_proxy: $http_proxy
+                HTTP_PROXY: $HTTP_PROXY
+                https_proxy: $https_proxy
+                HTTPS_PROXY: $HTTPS_PROXY
+# vim: sw=4 ts=4 expandtab invlist:
 
-  db:
-    image: postgres:10.5-alpine
-    hostname: postgres
-    ports:
-      # tried to just prefix the standard port with 5
-      - "55432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: OMOP_TEST
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    restart: unless-stopped
-
-  admin:
-    # - [ ] @TODO: (2018-10-25) do we want the latest tag or something fixed and stable?
-    image: dpage/pgadmin4:latest
-    depends_on:
-      - db
-    # - [ ] @TODO: (2018-10-25) map to UDS/IDS
-    # extra_hosts:
-    #  - "IDS_host:123.456.789.000"
-    #  - "UDS_host:123.456.789.000"
-    ports:
-      - "50080:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
-      PGADMIN_DEFAULT_PASSWORD: admin
-      # made up email address but the domain is available!
-      # PGADMIN_DEFAULT_EMAIL: dev@inform-health.org
-      # PGADMIN_DEFAULT_PASSWORD: emap-dev
-    restart: unless-stopped
-
-  datascience:
-    build: ./jupyter
-    depends_on:
-      - db
-    ports:
-      - "58888:8888"
-    volumes:
-      - dev-home:/home/emap
-
-volumes:
-  postgres-data: 
-  dev-home:
