@@ -344,7 +344,7 @@
 #  
 #  Terminals may also be automatically disabled if the terminado package is not
 #  available.
-c.NotebookApp.terminals_enabled = False
+# c.NotebookApp.terminals_enabled = True
 
 ## Token used for authenticating first-time connections to the server.
 #  

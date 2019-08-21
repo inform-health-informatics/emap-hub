@@ -6,12 +6,16 @@ echo 'This script will run an Jupyter Notebook on port 5888'
 
 echo 'It generates a directory called analysis ready to receive your code'
 echo 'This is independent of the docker container and so persists'
+# TODO: make this option if the directory already exists
 mkdir -p ./analysis/data/raw
 mkdir -p ./analysis/data/tmp
 mkdir -p ./analysis/code
 mkdir -p ./analysis/notebooks
 mkdir -p ./analysis/utils
 mkdir -p ./analysis/figs
+
+# A local notebook for JupyterLab
+mkdir -p ./notebooks
 
 
 # Default password: stanley
@@ -26,16 +30,14 @@ docker run --rm -p 5888:8888 \
     --user=root \
     -e NB_USER=steve \
     -w /home/$NB_USER \
-    -v ${PWD}:"/home/steve/work" \
+    -v ${PWD}/analysis:"/home/steve" \
     -e CHOWN_HOME=yes \
     -e CHOWN_EXTRA_OPTS='-R' \
     emap-datascience \
-    start.sh jupyter lab --NotebookApp.password='sha1:7f65058dd8b6:3415ba94890769c19b318f184ef41c2ee6e05955' 
+    start.sh jupyter lab --NotebookApp.password='sha1:7f65058dd8b6:3415ba94890769c19b318f184ef41c2ee6e05955' \
+    --LabApp.notebook_dir='steve' \
+    --FileContentsManager.allow_hidden=True \
+    
 
-# §§§-e GEN_CERT=yes \
- 
-#    \
-#    --certfile=mycert.pem --keyfile mykey.key
 
-#    start.sh jupyter lab --LabApp.token='sha1:7f65058dd8b6:3415ba94890769c19b318f184ef41c2ee6e05955'
 # End of file
