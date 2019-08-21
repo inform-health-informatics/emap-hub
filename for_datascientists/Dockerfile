@@ -1,7 +1,8 @@
 # Start from a core stack version
 FROM jupyter/datascience-notebook:2ce7c06a61a1
 
-COPY ./jupyter_notebook_config.py /home/jovyan/.jupyter
+COPY ./jupyter_notebook_config.py /home/steve/.jupyter/jupyter_notebook_config.py
+# COPY ./mykey.key /home/
 
 # hard coding a default password
 # RUN jupyter notebook --generate-config

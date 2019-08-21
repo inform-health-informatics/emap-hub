@@ -1,5 +1,16 @@
-# A LINE TO PROVE THAT THIS IS MY VERSION NOT THE INSTALLED ONE!!
-# 2019-08-21t1250
+# ===============================================================
+# ** EMAP **
+# ===============================================================
+
+# EMAP custom modifications to configuration for Jupyter
+# BEWARE that json config might override this?
+
+# Steve Harris
+# 2019-08-21
+
+# Notes
+# 2019-08-21: I'm not sure how useful this is since it seems to be more focused on notebooks rather than JupyterLab
+
 # ===============================================================
 
 # Configuration file for jupyter-notebook.
@@ -333,7 +344,7 @@
 #  
 #  Terminals may also be automatically disabled if the terminado package is not
 #  available.
-#c.NotebookApp.terminals_enabled = True
+c.NotebookApp.terminals_enabled = False
 
 ## Token used for authenticating first-time connections to the server.
 #  
