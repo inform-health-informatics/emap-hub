@@ -26,7 +26,7 @@ mkdir -p ./notebooks
 # You need to first run docker build -t emap-datascience:latest from this directory
 # TODO: I seem to be repeating the user name in multiple places below
 #       this might be only cosmetic; I am just trying to avoid using joyvan
-docker run --rm -p 5888:8888 \
+docker run --rm -p 5892:8888 \
     --user=root \
     -e NB_USER=steve \
     -w /home/$NB_USER \
