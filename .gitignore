@@ -1,1 +1,10 @@
+# Text editors etc.
 *.sublime-*
+*.vscode
+
+# Jupyter
+*.ipynb_checkpints
+Untitled*.ipynb
+*.jupyterlab-workspace
+for_datascientists/analysis/.ipython/*
+for_datascientists/analysis/.local/*
