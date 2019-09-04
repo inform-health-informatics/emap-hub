@@ -26,16 +26,16 @@ mkdir -p ./notebooks
 # You need to first run docker build -t emap-datascience:latest from this directory
 # TODO: I seem to be repeating the user name in multiple places below
 #       this might be only cosmetic; I am just trying to avoid using joyvan
-docker run --rm -p 5892:8888 \
+docker run --rm -p 5888:8888 \
     --user=root \
-    -e NB_USER=steve \
+    -e NB_USER=sharris9 \
     -w /home/$NB_USER \
-    -v ${PWD}/analysis:"/home/steve" \
+    -v ${PWD}/analysis:"/home/sharris9" \
     -e CHOWN_HOME=yes \
     -e CHOWN_EXTRA_OPTS='-R' \
     emap-datascience \
     start.sh jupyter lab --NotebookApp.password='sha1:7f65058dd8b6:3415ba94890769c19b318f184ef41c2ee6e05955' \
-    --LabApp.notebook_dir='steve' \
+    --LabApp.notebook_dir='sharris9' \
     --FileContentsManager.allow_hidden=True \
     
 
