@@ -17,4 +17,7 @@ COPY requirements.txt /tmp/
 # Additional R requirements
 # ===========================
 
-RUN conda install -y -c r r-rstan r-bayesplot
+RUN conda install -y psycopg2 altair
+RUN conda install -y -c r r-tidyverse 
+RUN conda install -y -c conda-forge r-circlize r-chorddiag r-igraph r-networkD3 r-ggraph
+

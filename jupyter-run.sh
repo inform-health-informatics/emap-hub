@@ -1,4 +1,4 @@
-echo 'This script will run an Jupyter Notebook on port 5888'
+echo 'This script will run an Jupyter Notebook on port 5890'
 
 # you will need to provide information about how to connect
 # from your local machine if you're running docker locally
@@ -28,7 +28,7 @@ chmod -Rv 777 ./notebooks
 # You need to first run docker build -t emap-datascience:latest from this directory
 # TODO: I seem to be repeating the user name in multiple places below
 #       this might be only cosmetic; I am just trying to avoid using joyvan
-docker run --rm -p 5889:8888 \
+docker run --rm -p 5891:8888 \
     --user=root \
     -e NB_USER=sharris9 \
     -w /home/$NB_USER \
